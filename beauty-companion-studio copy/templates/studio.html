@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Companion Studio | Sephora</title>
+    <link rel="stylesheet" href="{{ url_for('studio.static', filename='css/companion.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Debug JavaScript -->
+    <script>
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="studio-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <i class="fas fa-sparkles"></i>
+                <h1>Beauty Companion Studio</h1>
+                <p>Create your personalized AI beauty assistant</p>
+            </div>
+            <div class="header-actions">
+                <a href="{{ url_for('store.dashboard_page') }}" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Store
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="studio-main">
+        <!-- Companion Selection Section -->
+        <section class="companion-selection" id="companionSelection">
+            <h2>Choose Your Beauty Companion</h2>
+            <p>Select a personality template or create your own custom companion</p>
+            
+            <div class="companions-grid">
+                <!-- Luna - Beauty Expert -->
+                <div class="companion-card" data-companion="luna">
+                    <div class="companion-avatar luna-avatar">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Luna</h3>
+                    <p class="companion-type">Beauty Expert</p>
+                    <p class="companion-description">Professional, knowledgeable, and experienced in all things beauty.</p>
+                    <div class="companion-traits">
+                        <span class="trait">Professional</span>
+                        <span class="trait">Expert</span>
+                        <span class="trait">Detailed</span>
+                    </div>
+                    <button class="select-companion-btn" onclick="selectCompanion('luna');";>
+                        Select Luna
+                    </button>
+                </div>
+
+                <!-- Aria - Friendly Companion -->
+                <div class="companion-card" data-companion="aria">
+                    <div class="companion-avatar aria-avatar">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Aria</h3>
+                    <p class="companion-type">Beauty Bestie</p>
+                    <p class="companion-description">Friendly, supportive, and always encouraging on your beauty journey.</p>
+                    <div class="companion-traits">
+                        <span class="trait">Friendly</span>
+                        <span class="trait">Supportive</span>
+                        <span class="trait">Casual</span>
+                    </div>
+                    <button class="select-companion-btn" onclick="selectCompanion('aria');";>
+                        Select Aria
+                    </button>
+                </div>
+
+                <!-- Victoria - Luxury Consultant -->
+                <div class="companion-card" data-companion="victoria">
+                    <div class="companion-avatar victoria-avatar">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Victoria</h3>
+                    <p class="companion-type">Luxury Consultant</p>
+                    <p class="companion-description">Sophisticated and elegant, specializing in premium beauty experiences.</p>
+                    <div class="companion-traits">
+                        <span class="trait">Sophisticated</span>
+                        <span class="trait">Elegant</span>
+                        <span class="trait">Luxury</span>
+                    </div>
+                    <button class="select-companion-btn" onclick="selectCompanion('victoria')">
+                        Select Victoria
+                    </button>
+                </div>
+
+                <!-- Zoe - Trend Expert -->
+                <div class="companion-card" data-companion="zoe">
+                    <div class="companion-avatar zoe-avatar">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Zoe</h3>
+                    <p class="companion-type">Trend Expert</p>
+                    <p class="companion-description">Energetic and trendy, always up-to-date with the latest beauty trends.</p>
+                    <div class="companion-traits">
+                        <span class="trait">Trendy</span>
+                        <span class="trait">Energetic</span>
+                        <span class="trait">Modern</span>
+                    </div>
+                    <button class="select-companion-btn" onclick="selectCompanion('zoe')">
+                        Select Zoe
+                    </button>
+                </div>
+
+                <!-- Custom Companion -->
+                <div class="companion-card custom-card" data-companion="custom">
+                    <div class="companion-avatar custom-avatar">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <h3>Custom</h3>
+                    <p class="companion-type">Create Your Own</p>
+                    <p class="companion-description">Design a completely personalized companion with your own preferences.</p>
+                    <div class="companion-traits">
+                        <span class="trait">Personalized</span>
+                        <span class="trait">Unique</span>
+                        <span class="trait">Custom</span>
+                    </div>
+                    <button class="select-companion-btn" onclick="showCustomization()">
+                        Create Custom
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customization Panel (Hidden by default) -->
+        <section class="customization-panel" id="customizationPanel" style="display: none;">
+            <h2>Customize Your Companion</h2>
+            
+            <div class="customization-form">
+                <div class="form-group">
+                    <label for="companionName">Companion Name</label>
+                    <input type="text" id="companionName" placeholder="Enter a name for your companion">
+                </div>
+
+                <div class="form-group">
+                    <label for="personalityType">Personality Type</label>
+                    <select id="personalityType">
+                        <option value="friendly">Friendly & Supportive</option>
+                        <option value="professional">Professional & Expert</option>
+                        <option value="trendy">Trendy & Energetic</option>
+                        <option value="sophisticated">Sophisticated & Elegant</option>
+                        <option value="humorous">Fun & Humorous</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="greetingMessage">Custom Greeting Message</label>
+                    <textarea id="greetingMessage" placeholder="Write a custom greeting message for your companion..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="backgroundColor">Background Color</label>
+                    <div class="color-options">
+                        <input type="color" id="backgroundColor" value="#f8f9fa">
+                        <div class="preset-colors">
+                            <div class="color-preset" data-color="#f8e8f0" style="background: #f8e8f0;"></div>
+                            <div class="color-preset" data-color="#fff2e6" style="background: #fff2e6;"></div>
+                            <div class="color-preset" data-color="#f5f0ff" style="background: #f5f0ff;"></div>
+                            <div class="color-preset" data-color="#ffe6f2" style="background: #ffe6f2;"></div>
+                            <div class="color-preset" data-color="#e6f3ff" style="background: #e6f3ff;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="cancelCustomization()">Cancel</button>
+                    <button class="btn-primary" onclick="createCustomCompanion()">Create Companion</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chat Interface (Hidden by default) -->
+        <section class="chat-interface" id="chatInterface" style="display: none;">
+            <!-- Memory Sidebar -->
+            <div class="memory-sidebar" id="memorySidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-history"></i> Chat History <span class="memory-count" id="memoryCount">(0)</span></h3>
+                    <button class="toggle-sidebar" onclick="toggleMemorySidebar()">
+                        <i class="fas fa-chevron-left" id="sidebarToggleIcon"></i>
+                    </button>
+                </div>
+                <div class="memory-list" id="memoryList">
+                    <p class="no-memories">No previous conversations yet</p>
+                </div>
+                
+                <!-- Memory Management Actions -->
+                <div class="memory-management">
+                    <button class="memory-action-btn" onclick="exportAllMemories()" title="Export all memories">
+                        <i class="fas fa-download"></i> Export All
+                    </button>
+                    <button class="memory-action-btn" onclick="showStoredMemories()" title="Debug memory storage">
+                        <i class="fas fa-info-circle"></i> Debug
+                    </button>
+                    <button class="memory-action-btn danger" onclick="clearAllMemories()" title="Clear all memories">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="main-chat-area">
+                <div class="chat-header">
+                    <div class="active-companion-info">
+                        <div class="companion-avatar-small" id="activeCompanionAvatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="companion-details">
+                            <h3 id="activeCompanionName">Companion</h3>
+                            <p id="activeCompanionType">Beauty Assistant</p>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="btn-secondary" onclick="autoSaveAndNewChat()">
+                            <i class="fas fa-plus"></i> New Chat
+                        </button>
+                        <button class="btn-secondary" onclick="backToSelection()">
+                            <i class="fas fa-arrow-left"></i> Change Companion
+                        </button>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be dynamically added here -->
+                </div>
+
+                <div class="chat-input-section">
+                    <div class="chat-input-container">
+                        <input type="text" id="chatInput" placeholder="Type your beauty question...">
+                        <button id="sendButton" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <script src="{{ url_for('studio.static', filename='js/companion.js') }}"></script>
+</body>
+</html>
