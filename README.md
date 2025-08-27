@@ -1,4 +1,4 @@
-<img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/2a3c7a19-4681-43a9-84c2-837b9ac61c8a" /><img width="1421" height="655" alt="image" src="https://github.com/user-attachments/assets/3be35faf-dab1-4771-b5c3-d1288d1b7061" /># 🧠 Beauty Companion AI Chatbot — Full Technical Overview
+# 🧠 Beauty Companion AI Chatbot — Full Technical Overview
 
 Home Page
 <img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/7c1c0887-6882-4ac7-8d62-cd647ab51a5b" />
