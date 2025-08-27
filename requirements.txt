@@ -1,0 +1,12 @@
+flask
+pandas
+google-generativeai
+python-dotenv
+Flask-CORS
+sentence-transformers
+faiss-cpu
+numpy
+python-telegram-bot
+asyncio
+Flask-SocketIO
+python-socketio
