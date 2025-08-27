@@ -65,6 +65,21 @@ Search Page
 Cart Page
 
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
+## 📌 Project Goal and Use Case
+The Beauty Companion AI Chatbot is an intelligent, multi-modal customer support and product recommendation system for the beauty and skincare domain. It leverages Generative AI (LLMs) and Retrieval-Augmented Generation (RAG) to provide personalized product advice, answer customer queries, and connect users to live agents. The system is designed to enhance e-commerce experiences, support SDG Goal 3 (Good Health & Well-being) by promoting informed skincare choices, and streamline agent workflows via automation and real-time chat.
+
+
+
+- **Conversational AI Chatbot**: Natural language chat for product Q&A, recommendations, and support, powered by advanced LLMs and RAG.
+- **Retrieval-Augmented Generation (RAG)**: Uses FAISS and sentence-transformers to ground LLM responses in real product data, ensuring accurate and context-aware answers.
+- **Live Agent Handoff**: Seamless escalation from AI to human agent via real-time WebSocket chat, with agent notification, session management, and agent assignment logic (one agent per session, agent join/leave tracking).
+- **Product Recommendation Engine**: Embeds product info and matches user needs to best-fit items, supporting personalized and context-driven suggestions, with filtering by category, skin type, and more.
+- **Beauty Companion Studio**: Interactive web module allowing users to create, customize, and chat with their own AI beauty assistant, including persona selection, memory/autosave, and persistent companion settings.
+- **Product Gallery & Image Support**: Users can browse products with images, view bestsellers, search/filter products, and access detailed product and review information.
+- **Review Analysis**: Integrates product review data for more informed recommendations and sentiment-aware responses.
+- **Session-Based Chat & History**: Each chat session is uniquely identified, with support for session-based context, agent assignment, and (optionally) chat history.
+- **Multi-Channel Support**: Unified experience across web (Flask/Jinja2), Telegram bot (with markdown and command support), and Studio UI, with extensibility for future channels (e.g., WhatsApp, WeChat).
+ - **Advanced Agent Management**: Agent email notification system (agent emails are read from an external `agents.txt` file for easy management), agent session tracking, agent availability logic, and one-agent-per-session enforcement for quality support.
 
 ## 🚀 Getting Started: Local Installation & Setup
 
@@ -135,21 +150,7 @@ The system consists of two main parts that need to be run separately in differen
     ```
     Your Telegram bot should now be online and responsive.
     
-## 📌 Project Goal and Use Case
-The Beauty Companion AI Chatbot is an intelligent, multi-modal customer support and product recommendation system for the beauty and skincare domain. It leverages Generative AI (LLMs) and Retrieval-Augmented Generation (RAG) to provide personalized product advice, answer customer queries, and connect users to live agents. The system is designed to enhance e-commerce experiences, support SDG Goal 3 (Good Health & Well-being) by promoting informed skincare choices, and streamline agent workflows via automation and real-time chat.
 
-
-
-- **Conversational AI Chatbot**: Natural language chat for product Q&A, recommendations, and support, powered by advanced LLMs and RAG.
-- **Retrieval-Augmented Generation (RAG)**: Uses FAISS and sentence-transformers to ground LLM responses in real product data, ensuring accurate and context-aware answers.
-- **Live Agent Handoff**: Seamless escalation from AI to human agent via real-time WebSocket chat, with agent notification, session management, and agent assignment logic (one agent per session, agent join/leave tracking).
-- **Product Recommendation Engine**: Embeds product info and matches user needs to best-fit items, supporting personalized and context-driven suggestions, with filtering by category, skin type, and more.
-- **Beauty Companion Studio**: Interactive web module allowing users to create, customize, and chat with their own AI beauty assistant, including persona selection, memory/autosave, and persistent companion settings.
-- **Product Gallery & Image Support**: Users can browse products with images, view bestsellers, search/filter products, and access detailed product and review information.
-- **Review Analysis**: Integrates product review data for more informed recommendations and sentiment-aware responses.
-- **Session-Based Chat & History**: Each chat session is uniquely identified, with support for session-based context, agent assignment, and (optionally) chat history.
-- **Multi-Channel Support**: Unified experience across web (Flask/Jinja2), Telegram bot (with markdown and command support), and Studio UI, with extensibility for future channels (e.g., WhatsApp, WeChat).
- - **Advanced Agent Management**: Agent email notification system (agent emails are read from an external `agents.txt` file for easy management), agent session tracking, agent availability logic, and one-agent-per-session enforcement for quality support.
 ## 🏢 Demo vs. Production: Data Management & Real-Time Features
 This project is designed for rapid prototyping, academic demonstration, and small-team use. To maximize speed and minimize setup, we use browser local storage for user data (username, password, cart, etc.) and a simple `agents.txt` file for agent management. This approach avoids the need for a backend database, making the system easy to run and test on any machine.
 
