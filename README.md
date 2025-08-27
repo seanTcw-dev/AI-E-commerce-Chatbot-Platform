@@ -66,6 +66,75 @@ Cart Page
 
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 
+## 🚀 Getting Started: Local Installation & Setup
+
+Follow these steps to set up and run the project on your local machine for development and testing purposes.
+
+**1. Clone the Repository**
+
+First, clone the project to your local machine:
+```bash
+git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
+cd AI-E-commerce-Chatbot-Platform
+```
+
+**2. Create a Python Virtual Environment**
+
+It is highly recommended to use a virtual environment to manage dependencies.
+```bash
+# For Windows
+python -m venv venv
+venv\Scripts\activate
+
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+**3. Install Dependencies**
+
+Install all the required Python packages using the `requirements.txt` file:
+```bash
+pip install -r requirements.txt
+```
+
+**4. Configure Environment Variables**
+
+The project requires several API keys and configuration settings.
+
+*   Create a `.env` file in the root directory by copying the example file:
+    ```bash
+    # For Windows
+    copy .env.example .env
+
+    # For macOS/Linux
+    cp .env.example .env
+    ```
+*   Open the newly created `.env` file and fill in your actual credentials for `GOOGLE_API_KEY`, `TELEGRAM_BOT_TOKEN`, email settings, etc.
+
+**5. Generate Vector Store (First-Time Setup)**
+
+The RAG pipeline relies on a pre-built FAISS index. If you are running the project for the first time or have updated the product data, you need to generate the embeddings:
+```bash
+python Vector_Store/embedFunc.py
+```
+
+**6. Run the Applications**
+
+The system consists of two main parts that need to be run separately in different terminals.
+
+*   **To start the Flask Web Application (Backend):**
+    ```bash
+    python chatbot/app.py
+    ```
+    The web application will be accessible at `http://127.0.0.1:5000`.
+
+*   **To start the Telegram Bot:**
+    ```bash
+    python telegram_bot/telegram_bot.py
+    ```
+    Your Telegram bot should now be online and responsive.
+    
 ## 📌 Project Goal and Use Case
 The Beauty Companion AI Chatbot is an intelligent, multi-modal customer support and product recommendation system for the beauty and skincare domain. It leverages Generative AI (LLMs) and Retrieval-Augmented Generation (RAG) to provide personalized product advice, answer customer queries, and connect users to live agents. The system is designed to enhance e-commerce experiences, support SDG Goal 3 (Good Health & Well-being) by promoting informed skincare choices, and streamline agent workflows via automation and real-time chat.
 
