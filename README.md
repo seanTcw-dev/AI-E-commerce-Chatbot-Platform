@@ -1,5 +1,41 @@
-# 🧠 Beauty Companion AI Chatbot — Full Technical Overview
+<img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/2a3c7a19-4681-43a9-84c2-837b9ac61c8a" /><img width="1421" height="655" alt="image" src="https://github.com/user-attachments/assets/3be35faf-dab1-4771-b5c3-d1288d1b7061" /># 🧠 Beauty Companion AI Chatbot — Full Technical Overview
 
+Home Page
+<img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/7c1c0887-6882-4ac7-8d62-cd647ab51a5b" />
+Product Page
+<img width="1437" height="670" alt="image" src="https://github.com/user-attachments/assets/7a248b64-b8ed-4b3b-997b-fcfc1be94d8a" />
+AI Chatbot
+<img width="451" height="650" alt="image" src="https://github.com/user-attachments/assets/90823866-cb5c-49d9-b32d-48400006d396" />
+<img width="453" height="662" alt="image" src="https://github.com/user-attachments/assets/2dec6aa5-97ca-4675-9850-c321e5b1f763" />
+Agent Page
+<img width="1080" height="591" alt="image" src="https://github.com/user-attachments/assets/ebc6ea36-a625-4944-808b-2b7e52e198b0" />
+<img width="944" height="698" alt="image" src="https://github.com/user-attachments/assets/d07cacce-5379-4b18-a923-8c541e75135e" />
+<img width="1080" height="754" alt="image" src="https://github.com/user-attachments/assets/06366684-97a0-4231-84c6-444d216962c1" />
+Telegram Page
+<img width="490" height="1080" alt="image" src="https://github.com/user-attachments/assets/f57dec0a-d53c-454d-bad4-c6adea78743a" />
+<img width="490" height="1080" alt="image" src="https://github.com/user-attachments/assets/1c602334-321a-4cbc-8de1-db993d472976" />
+<img width="490" height="1080" alt="image" src="https://github.com/user-attachments/assets/4ffad8ce-a060-48b4-9875-8fe4b84360d1" />
+Telegram Agent Live Chat Page
+<img width="1080" height="830" alt="image" src="https://github.com/user-attachments/assets/7dbd55a2-ad03-4e4a-a2b0-1cd52b7a69d5" />
+Telegram Email Page
+<img width="966" height="680" alt="image" src="https://github.com/user-attachments/assets/5b8d1c11-f063-4f06-b7f9-8c38c2b25ffc" />
+Web Email Page
+<img width="1080" height="522" alt="image" src="https://github.com/user-attachments/assets/97de17ec-3f0f-4860-b27a-40eef5854fd4" />
+Login Page
+<img width="568" height="879" alt="image" src="https://github.com/user-attachments/assets/6421a46c-195c-447f-a5b1-d4fea76c7479" />
+Online Shopping Page
+<img width="1375" height="637" alt="image" src="https://github.com/user-attachments/assets/adf7bd86-3e28-4d8a-b9af-17ca2994f11d" />
+Product Information Page
+<img width="1000" height="557" alt="image" src="https://github.com/user-attachments/assets/53e0e894-817e-40e5-9014-7f75f440f5ba" />
+Ai Chatbot Personality Studio
+<img width="1300" height="601" alt="image" src="https://github.com/user-attachments/assets/1040041d-d65b-45a1-9037-a2a2d8a8a9dd" />
+<img width="1412" height="753" alt="image" src="https://github.com/user-attachments/assets/0f0a5a55-603b-44a3-83a5-742096925b99" />
+Filter Page
+<img width="1423" height="656" alt="image" src="https://github.com/user-attachments/assets/96e4bcd5-6195-4130-b3c8-3469a8fc0187" />
+Search Page
+<img width="1323" height="679" alt="image" src="https://github.com/user-attachments/assets/44066913-a8ef-44ef-ac2c-94b453e031d5" />
+Cart Page
+<img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 ## 📌 Project Goal and Use Case
 The Beauty Companion AI Chatbot is an intelligent, multi-modal customer support and product recommendation system for the beauty and skincare domain. It leverages Generative AI (LLMs) and Retrieval-Augmented Generation (RAG) to provide personalized product advice, answer customer queries, and connect users to live agents. The system is designed to enhance e-commerce experiences, support SDG Goal 3 (Good Health & Well-being) by promoting informed skincare choices, and streamline agent workflows via automation and real-time chat.
 
