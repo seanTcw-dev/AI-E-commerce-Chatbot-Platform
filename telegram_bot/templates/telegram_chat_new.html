@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Live Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='telegram_chat.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-session-id="{{ session_id }}">
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Agent Chat - Session: <span id="session-id-display">{{ session_id }}</span></h2>
+            <button id="end-chat-btn">End Chat</button>
+        </div>
+        <div class="messages" id="messages">
+            <!-- Messages will be dynamically inserted here -->
+        </div>
+        <div class="message-input-container">
+            <input type="text" id="message_input" placeholder="Type your reply...">
+            <div class="button-group">
+                <button id="send_button" class="btn btn-send">
+                    <i class="fas fa-paper-plane"></i> Send
+                </button>
+                <button id="end-chat-btn" class="btn btn-end-chat">
+                    <i class="fas fa-phone-slash"></i> End Chat
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Socket.IO client from CDN -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    
+    <!-- Load our custom chat script -->
+    <script src="{{ url_for('static', filename='telegram_chat.js') }}"></script>
+
+</body>
+</html>

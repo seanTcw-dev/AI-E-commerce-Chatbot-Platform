@@ -1,0 +1,5 @@
+New chat request from a Telegram user.
+
+Please join the chat here: {{ chat_link }}
+
+Session ID: {{ session_id }}
