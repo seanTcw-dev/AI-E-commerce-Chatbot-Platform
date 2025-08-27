@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Sephora  | Premium Skincare</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/chatbot.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Sephora</div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>    <!-- Hero Section -->    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover the Power of Nature</h1>
+            <p>Premium skincare formulated with the finest natural ingredients</p>
+            <a href="{{ url_for('store.login_page') }}" class="shop-now-btn">
+                <span>Shop Now</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section><!-- Featured Banner -->    <section class="featured-banner">
+        <div class="banner-content">
+            <h2>New Summer Collection</h2>
+            <p>Lightweight formulas for radiant summer skin</p>
+            <a href="E-Commerce/Auth/login.php" class="btn light">Explore</a>
+        </div>
+        
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Our Bestsellers</h2>
+        <div class="products-grid">            <!-- Product 1 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('{{ url_for('static', filename='images/Hydra-Essence Serum.png') }}')"></div>
+                <h3>Hydra-Essence Serum</h3>
+                <p class="product-description">Intense hydration serum with hyaluronic acid</p>
+                <p class="price">RM48.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('{{ url_for('static', filename='images/Radiance Eye Cream.png') }}')"></div>
+                <h3>Radiance Eye Cream</h3>
+                <p class="product-description">Brightening eye cream with vitamin C</p>
+                <p class="price">RM36.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('{{ url_for('static', filename='images/Daily Moisturizer SPF 30.png') }}')"></div>
+                <h3>Daily Moisturizer SPF 30</h3>
+                <p class="product-description">Lightweight daily protection with antioxidants</p>
+                <p class="price">RM42.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('{{ url_for('static', filename='images/Overnight Repair Mask.png') }}')"></div>
+                <h3>Overnight Repair Mask</h3>
+                <p class="product-description">Intensive overnight treatment for glowing skin</p>
+                <p class="price">RM55.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('{{ url_for('static', filename='images/Gentle Cleansing Foam.png') }}')"></div>
+                <h3>Gentle Cleansing Foam</h3>
+                <p class="product-description">Sulfate-free gentle cleanser for all skin types</p>
+                <p class="price">RM28.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">                <div class="product-image" style="background-image: url('chatbot/static/images/Botanical Face Oil.png')"></div>
+                <h3>Botanical Face Oil</h3>
+                <p class="product-description">Nourishing face oil with rosehip and jojoba</p>
+                <p class="price">RM60.00</p>
+                <a href="E-Commerce/Auth/login.php" class="add-to-cart" style="display: inline-block; text-decoration: none; text-align: center;">Add to Bag</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2 class="section-title">Our Philosophy</h2>
+            <p>At Sephora , we believe in the power of nature combined with scientific innovation. Each product is carefully crafted using sustainably sourced ingredients that deliver real results without compromising the health of your skin or our planet.</p>
+            <p>Founded in 2023, our mission is to create skincare that enhances your natural beauty while promoting long-term skin health.</p>
+        </div>
+        <div class="about-image"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 Beauty Lane, Skincare City, SC 10001</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+1 (800) 123-4567</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>hello@Sephoraskin.com</p>
+                </div>
+                <div class="social-media">
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sephora</h3>
+                <p>Premium natural skincare for everyone.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Care</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive updates on new products and special offers.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sephora Skincare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-toggle" id="chatbotToggle">
+            <div class="chat-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="close-icon">
+                <span class="close-line line1"></span>
+                <span class="close-line line2"></span>
+            </div>
+        </div>
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-header-top">
+                    <div class="chatbot-title">
+                        <i class="fas fa-sparkles"></i> Beauty Assistant
+                    </div>
+                    <button class="chatbot-minimize">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div class="ai-model-selector">
+                    <span>AI Model:</span>
+                    <select id="modelSelect">
+                        <option value="gemini">Gemini</option>
+                        <option value="local">Local AI</option>
+                    </select>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <!-- Messages will be dynamically inserted here by chatbot.js -->
+            </div>
+            <div class="chatbot-input-area">
+                <button class="talk-to-agent">Talk to Agent</button>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-message="Recommend products for dry skin">Dry Skin Help</button>
+                    <button class="quick-btn" data-message="What is the best serum?">Best Serum</button>
+                </div>
+                <div class="chatbot-input-container">
+                    <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Ask about beauty tips...">
+                    <button class="chatbot-send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load Socket.IO from CDN with local fallback -->
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        if (typeof io === 'undefined') {
+            console.log('Socket.IO CDN failed, loading local fallback.');
+            document.write('<script src="{{ url_for('static', filename='js/socket.io.js') }}"><\/script>');
+        }
+    </script>
+
+    <!-- Chatbot-related scripts -->
+
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>

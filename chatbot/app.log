@@ -1,0 +1,79 @@
+2025-07-07 21:39:31,418 - __main__ - INFO - Testing connection to Local AI at http://127.0.0.1:11434/api/generate
+2025-07-07 21:39:33,465 - __main__ - ERROR - Failed to connect to Local AI service at http://127.0.0.1:11434/api/generate: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019451E4A980>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-07-07 21:39:33,466 - services.ai_service - INFO - Testing connection to Local AI at http://127.0.0.1:11434/api/tags
+2025-07-07 21:39:35,521 - services.ai_service - ERROR - Failed to connect to Local AI service at http://127.0.0.1:11434/api/tags: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019451E4B2E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-07-07 21:39:35,522 - services.ai_service - INFO - Loading sentence transformer model...
+2025-07-07 21:39:35,525 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-07-07 21:39:35,530 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-07 21:39:49,339 - services.ai_service - INFO - Using cache directory: C:\Users\SeanTeng\Desktop\Ai assignment final\chatbot\cache
+2025-07-07 21:39:49,339 - services.ai_service - INFO - Found RAG cache files in: C:\Users\SeanTeng\Desktop\Ai assignment final\cache
+2025-07-07 21:39:49,339 - services.ai_service - INFO - Loading FAISS index from C:\Users\SeanTeng\Desktop\Ai assignment final\cache\faiss_index.idx
+2025-07-07 21:39:49,349 - services.ai_service - INFO - Loaded FAISS index with 8494 vectors
+2025-07-07 21:39:49,349 - services.ai_service - INFO - Loading product contexts from C:\Users\SeanTeng\Desktop\Ai assignment final\cache\product_contexts.pkl
+2025-07-07 21:39:49,361 - services.ai_service - INFO - Loaded 8494 product contexts
+2025-07-07 21:39:49,361 - services.ai_service - INFO - Successfully loaded RAG components from C:\Users\SeanTeng\Desktop\Ai assignment final\cache
+2025-07-07 21:39:49,361 - services.ai_service - INFO - RAG components initialized successfully with 8494 product contexts
+2025-07-07 21:39:49,362 - __main__ - INFO - AI Service initialized
+2025-07-07 21:39:49,364 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-07-07 21:39:49,364 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-07 21:39:58,316 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.4:5000
+2025-07-07 21:39:58,317 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-07 21:40:37,599 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:40:37] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:40:42,849 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:40:42] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:40:49,741 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:40:49] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:40:56,824 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:40:56] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:40:58,915 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:40:58] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:42:22,312 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET / HTTP/1.1" 200 -
+2025-07-07 21:42:22,353 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/styles/global.css HTTP/1.1" 200 -
+2025-07-07 21:42:22,356 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/styles/chatbot.css HTTP/1.1" 200 -
+2025-07-07 21:42:22,357 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-07-07 21:42:22,402 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/background.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,406 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/Radiance%20Eye%20Cream.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,411 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/Hydra-Essence%20Serum.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,415 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/Gentle%20Cleansing%20Foam.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,415 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/Overnight%20Repair%20Mask.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,416 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /static/images/Daily%20Moisturizer%20SPF%2030.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,422 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "GET /chatbot/static/images/Botanical%20Face%20Oil.png HTTP/1.1" 200 -
+2025-07-07 21:42:22,482 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:22] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-07 21:42:26,534 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:26] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:42:31,877 - services.ai_service - ERROR - Error connecting to Local AI service: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000019454ACF760>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+2025-07-07 21:42:31,878 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:42:31] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:46:28,169 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET / HTTP/1.1" 200 -
+2025-07-07 21:46:28,210 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/styles/chatbot.css HTTP/1.1" 200 -
+2025-07-07 21:46:28,210 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/styles/global.css HTTP/1.1" 200 -
+2025-07-07 21:46:28,228 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/js/chatbot.js HTTP/1.1" 200 -
+2025-07-07 21:46:28,261 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/background.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,271 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/Hydra-Essence%20Serum.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,275 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/Radiance%20Eye%20Cream.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,283 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/Overnight%20Repair%20Mask.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,284 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/Daily%20Moisturizer%20SPF%2030.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,295 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /chatbot/static/images/Botanical%20Face%20Oil.png HTTP/1.1" 200 -
+2025-07-07 21:46:28,296 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:28] "GET /static/images/Gentle%20Cleansing%20Foam.png HTTP/1.1" 200 -
+2025-07-07 21:46:32,179 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:32] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:46:40,738 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-07-07 21:46:51,929 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:46:51] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:54:28,584 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:54:28] "GET /health HTTP/1.1" 200 -
+2025-07-07 21:54:37,805 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:54:37] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:54:43,434 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:54:43] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:54:50,283 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:54:50] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:54:57,108 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:54:57] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:55:02,976 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:55:02] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:55:20,369 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:55:20] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:55:34,502 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:55:34] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:55:48,335 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:55:48] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:56:03,291 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:56:03] "POST /chat HTTP/1.1" 200 -
+2025-07-07 21:56:17,656 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 21:56:17] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:04,093 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:04] "GET /health HTTP/1.1" 200 -
+2025-07-07 22:01:12,558 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:12] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:17,586 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:17] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:24,957 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:24] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:31,619 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:31] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:38,266 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:38] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:01:57,247 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:01:57] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:02:10,263 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:02:10] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:02:22,307 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:02:22] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:02:41,826 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:02:41] "POST /chat HTTP/1.1" 200 -
+2025-07-07 22:02:57,244 - werkzeug - INFO - 127.0.0.1 - - [07/Jul/2025 22:02:57] "POST /chat HTTP/1.1" 200 -

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sephora - Login</title>
+    <link rel="stylesheet" href="{{ url_for('store.static', filename='styles/auth.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <!-- Back to Main Site Button -->
+        <div class="back-navigation">
+            <a href="{{ url_for('main.index') }}" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Main Site
+            </a>
+        </div>
+        
+        <div class="auth-header">
+            <h1><i class="fas fa-store"></i> Beauty Store</h1>
+            <p>Your one-stop shop for beauty products</p>
+        </div>
+
+        <!-- Login Form -->
+        <div class="auth-form active" id="loginForm">
+            <h2>Welcome Back</h2>
+            <form id="loginFormSubmit">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            <p class="auth-switch">
+                Don't have an account? 
+                <a href="#" onclick="switchToSignup()">Sign up here</a>
+            </p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="auth-form" id="signupForm">
+            <h2>Create Account</h2>
+            <form id="signupFormSubmit">
+                <div class="form-group">
+                    <label for="signupFullName">Full Name</label>
+                    <input type="text" id="signupFullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input type="text" id="signupUsername" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">Phone Number</label>
+                    <input type="tel" id="signupPhone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupAddress">Address</label>
+                    <textarea id="signupAddress" name="address" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="auth-btn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            <p class="auth-switch">
+                Already have an account? 
+                <a href="#" onclick="switchToLogin()">Login here</a>
+            </p>
+        </div>
+
+        <!-- Demo Access -->
+        <div class="demo-access">
+            <p><strong>For Demo:</strong></p>
+            <a href="{{ url_for('store.login_page', guest='true') }}" class="demo-btn">
+                <i class="fas fa-eye"></i> Continue as Guest
+            </a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('store.static', filename='js/auth.js') }}"></script>
+</body>
+</html>

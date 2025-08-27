@@ -1,0 +1,9 @@
+{
+  "recentAgents": [],
+  "defaultWelcomeMessages": [
+    "Hi, my name is {name}, how may I help you?",
+    "Hello! I'm {name}, I'm here to assist you today. What can I help you with?",
+    "Good day! This is {name}, how can I make your day better?",
+    "Hi there! {name} here, ready to help you with any questions you have!"
+  ]
+}

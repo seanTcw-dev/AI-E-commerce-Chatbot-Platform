@@ -1,0 +1,11 @@
+{
+    "default": {
+        "id": "default",
+        "name": "Luna",
+        "personality": "friendly",
+        "greeting": "Hello! I'm Luna, your skincare assistant. How can I help you today?",
+        "bgColor": "#f4f4f9",
+        "bgImage": "",
+        "history": []
+    }
+}

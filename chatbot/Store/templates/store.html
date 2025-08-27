@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sephora Store</title>
+    <link rel="stylesheet" href="{{ url_for('store.static', filename='styles/store.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('store.static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="store-header">
+        <div class="header-content">
+            <div class="store-logo">
+                <i class="fas fa-store"></i> Sephora
+            </div>
+            
+            <nav class="header-nav">
+                <div class="nav-links">
+                    <a href="{{ url_for('studio.studio_page') }}" class="studio-nav-link">
+                        <i class="fas fa-palette"></i> Studio
+                    </a>
+                    <a href="{{ url_for('store.dashboard_page') }}" class="active store-nav-link">
+                        <i class="fas fa-shopping-bag"></i> Store
+                    </a>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search products..." onkeyup="handleSearchInput(event)">
+                    <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()">&times;</button>
+                    <button class="search-btn" onclick="searchProducts()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-info">
+                    <!-- The username is now directly rendered by the server -->
+                    <span>Welcome, <strong id="currentUser">{{ user_info.username or 'Guest' }}</strong></span>
+                    
+                    <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-cart"></i> Cart (<span class="cart-count" id="cartCount">0</span>)</button>
+                    <!-- Logout button is now a proper link -->
+                    <a href="{{ url_for('store.logout') }}" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="store-main">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-filter"></i> Filters</h3>
+            
+            <div class="filter-group">
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter" onchange="filterProducts()">
+                    <option value="">All Categories</option>
+                    <option value="Fragrance">Fragrance</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Makeup">Makeup</option>
+                    <option value="Hair Care">Hair Care</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="priceFilter">Price Range:</label>
+                <select id="priceFilter" onchange="filterProducts()">
+                    <option value="">All Prices</option>
+                    <option value="0-25">$0 - $25</option>
+                    <option value="25-50">$25 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                    <option value="100">$100+</option>
+                </select>
+            </div>
+            
+            <button class="clear-filters-btn" onclick="clearFilters()">
+                <i class="fas fa-times"></i> Clear Filters
+            </button>
+        </aside>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2><i class="fas fa-shopping-bag"></i> Our Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+                <p class="no-products">Loading products...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-content" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total: $<span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">
+            <div class="chat-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="close-icon">
+                <span class="close-line line1"></span>
+                <span class="close-line line2"></span>
+            </div>
+        </div>
+        <div class="chatbot-container" id="chatbotContainer">
+            <div class="chatbot-header">
+                <div class="chatbot-header-top">
+                    <div class="chatbot-title">
+                        <i class="fas fa-sparkles"></i> Beauty Assistant
+                    </div>
+                    <button class="chatbot-minimize" onclick="toggleChatbot()">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+                <div class="ai-model-selector">
+                    <span>AI Model:</span>
+                    <select id="aiModelSelect">
+                        <option value="gemini">Gemini</option>
+                        <option value="local">Local AI</option>
+                    </select>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        Hello! I'm your Beauty Assistant. How can I help you with your skincare and beauty needs today? 💄✨
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input-area">
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="sendQuickMessage('Recommend products for dry skin')">
+                        Dry Skin Help
+                    </button>
+                    <button class="quick-btn" onclick="sendQuickMessage('What is the best serum?')">
+                        Best Serum
+                    </button>
+                    <button class="quick-btn talk-to-agent-btn" onclick="requestAgent()">
+                        <i class="fas fa-headset"></i> Talk to Agent
+                    </button>
+                </div>
+                <div class="chatbot-input-container">
+                    <div class="chatbot-input-row">
+                        <input type="text" id="chatbotInput" placeholder="Ask about skincare, makeup, or beauty tips..." onkeypress="if(event.key==='Enter') sendMessage()">
+                        <button class="chatbot-send" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Studio Quick Access Modal -->
+    <div id="studioModal" class="modal" style="display: none;">
+        <div class="modal-content studio-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-palette"></i> Companion Studio</h3>
+                <button class="modal-close" onclick="closeStudio()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="studioFrame" width="100%" height="600" frameborder="0">
+                    <p>Loading Companion Studio...</p>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="{{ url_for('store.static', filename='js/store.js') }}"></script>
+    <!-- Load Socket.IO from CDN with local fallback -->
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        // Fallback to local version if CDN fails
+        (function() {
+            if (typeof io === 'undefined') {
+                const socketScript = document.createElement('script');
+                socketScript.src = "{{ url_for('store.static', filename='js/socket.io.js') }}";
+                document.head.appendChild(socketScript);
+            }
+        })();
+
+        // Initialize user info from Flask template
+        const userInfo = JSON.parse('{{ user_info|tojson|safe if user_info else "null" }}');
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (userInfo && typeof userInfo === 'object') {
+                // This is the main entry point for the store's JavaScript.
+                initializeWithServerData(userInfo);
+            } else {
+                console.error('User info not found or is invalid.');
+            }
+        });
+    </script>
+</body>
+</html>

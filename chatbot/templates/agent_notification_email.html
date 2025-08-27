@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Live Chat Request</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #d63384;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #d63384;
+            margin: 0;
+            font-size: 28px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .session-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #d63384;
+        }
+        .session-info h3 {
+            margin-top: 0;
+            color: #d63384;
+        }
+        .session-info p {
+            margin: 8px 0;
+            font-weight: 500;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #d63384;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #b02a5b;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+        }
+        .urgent {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .urgent strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 New Live Chat Request</h1>
+        </div>
+        
+        <div class="content">
+            <div class="urgent">
+                <strong>⏰ Urgent:</strong> A customer is waiting for live assistance!
+            </div>
+            
+            <p>Hello,</p>
+            <p>A customer has requested a live chat session and needs your immediate assistance. Please join the chat as soon as possible to provide excellent customer service.</p>
+            
+            <div class="session-info">
+                <h3>📋 Session Details</h3>
+                <p><strong>Session ID:</strong> {{ session_id }}</p>
+                <p><strong>Time:</strong> {{ timestamp }}</p>
+                <p><strong>Status:</strong> Waiting for Agent</p>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="{{ chat_link }}" class="cta-button">
+                    💬 Join Chat Now
+                </a>
+            </div>
+            
+            <p><strong>Direct Link:</strong> <a href="{{ chat_link }}" style="color: #d63384;">{{ chat_link }}</a></p>
+            
+            <p>Thank you for your prompt response and excellent customer service!</p>
+        </div>
+        
+        <div class="footer">
+            <p>This is an automated message from the Sephora Customer Support System</p>
+            <p>Please do not reply to this email</p>
+        </div>
+    </div>
+</body>
+</html>

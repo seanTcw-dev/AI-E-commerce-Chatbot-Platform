@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Live Chat</title>
+    <!-- 使用 main 蓝图来加载 global.css -->
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='styles/global.css') }}">
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; font-family: sans-serif; }
+        .chat-container { width: 80%; max-width: 800px; height: 80vh; background-color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); display: flex; flex-direction: column; border-radius: 10px; }
+        .chat-header { padding: 1rem; background-color: #1a1a1a; color: #fff; text-align: center; border-radius: 10px 10px 0 0; }
+        .chat-header h1 { margin: 0; font-size: 1.2rem; }
+        .chat-header p { margin: 5px 0 0; font-size: 0.8rem; color: #ccc; }
+        .messages { flex-grow: 1; padding: 1rem; overflow-y: auto; border-bottom: 1px solid #ddd; }
+        .message-input { display: flex; padding: 1rem; }
+        #message_input { flex-grow: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 20px; outline: none; }
+        #send_button, #end_chat_button { padding: 0.8rem 1.5rem; margin-left: 1rem; border: none; color: #fff; border-radius: 20px; cursor: pointer; }
+        #send_button { background-color: #007bff; }
+        #send_button:hover { background-color: #0056b3; }
+        #end_chat_button { background-color: #dc3545; }
+        .system-message { color: #6c757d; font-style: italic; text-align: center; margin-bottom: 10px; font-size: 0.9rem;}
+        .message-wrapper { margin-bottom: 10px; }
+        .message-wrapper.agent-message { text-align: right; }
+        .message-wrapper.customer-message { text-align: left; }
+        .msg-bubble { display: inline-block; padding: 8px 12px; max-width: 70%; text-align: left; }
+        .agent-message .msg-bubble { background-color: #007bff; color: white; border-radius: 15px 15px 0 15px; }
+        .customer-message .msg-bubble { background-color: #e9ecef; color: #343a40; border-radius: 15px 15px 15px 0; }
+        .msg-sender { font-weight: bold; font-size: 0.8rem; margin-bottom: 4px; }
+        
+        /* Greeting Modal Styles */
+        .greeting-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .greeting-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .greeting-content h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .greeting-options {
+            display: grid;
+            gap: 10px;
+            margin: 1.5rem 0;
+        }
+        .greeting-option {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: left;
+            background-color: #f9f9f9;
+        }
+        .greeting-option:hover {
+            background-color: #e9f5ff;
+            border-color: #007bff;
+        }
+        .greeting-option.selected {
+            background-color: #e1f0ff;
+            border-color: #007bff;
+            font-weight: bold;
+        }
+        .greeting-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Greeting Message Modal -->
+    <div id="greetingModal" class="greeting-modal">
+        <div class="greeting-content">
+            <h2>Welcome to Live Chat</h2>
+            <p>Select a greeting message to start the conversation:</p>
+            <div class="greeting-options" id="greetingOptions">
+                <div class="greeting-option" data-message="Hello! Thank you for contacting us. How may I assist you today?">
+                    <strong>Standard Greeting</strong><br>
+                    <small>Hello! Thank you for contacting us.</small>
+                </div>
+                <div class="greeting-option" data-message="Hi there! How can I help you today?">
+                    <strong>Friendly Greeting</strong><br>
+                    <small>Hi there! How can I help you today?</small>
+                </div>
+                <div class="greeting-option" data-message="Good day! Thank you for reaching out to our support team. How may I assist you today?">
+                    <strong>Professional Greeting</strong><br>
+                    <small>Good day! Thank you for reaching out to our support team.</small>
+                </div>
+            </div>
+            <div class="greeting-actions">
+                <button id="skipGreeting" class="btn btn-secondary">Skip Greeting</button>
+                <button id="sendGreeting" class="btn btn-primary" disabled>Send Greeting</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Live Chat</h1>
+            <p>Session ID: {{ session_id }}</p>
+        </div>
+        <div class="messages" id="messages"></div>
+        <div class="message-input">
+            <input type="text" id="message_input" placeholder="Type your message...">
+            <button id="send_button">Send</button>
+            <button id="end_chat_button">End Chat</button>
+        </div>
+    </div>
+
+    <!-- 1. Prelaunch Socket.IO for get ready -->
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        if (typeof io === 'undefined') {
+            document.write("<script src='{{ url_for('main.static', filename='js/socket.io.js') }}'><\/script>");
+        }
+    </script>
+    
+    <!-- 2. Main Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sessionId = "{{ session_id }}";
+            const messagesDiv = document.getElementById('messages');
+            const sendButton = document.getElementById('send_button');
+            const messageInput = document.getElementById('message_input');
+            const endChatButton = document.getElementById('end_chat_button');
+            let agentName = "";
+            let socket;
+
+            // Optimized message display function
+            function addMessageToBox(sender, message, type) {
+                const wrapper = document.createElement('div');
+                wrapper.className = `message-wrapper ${type}`;
+                
+                const bubble = document.createElement('div');
+                bubble.className = 'msg-bubble';
+
+                const senderDiv = document.createElement('div');
+                senderDiv.className = 'msg-sender';
+                senderDiv.textContent = sender;
+
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = message;
+
+                bubble.appendChild(senderDiv);
+                bubble.appendChild(messageDiv);
+                wrapper.appendChild(bubble);
+                messagesDiv.appendChild(wrapper);
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+
+            function addSystemMessage(message) {
+                 const messageElement = document.createElement('div');
+                 messageElement.className = 'system-message';
+                 messageElement.textContent = `[System] ${message}`;
+                 messagesDiv.appendChild(messageElement);
+                 messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+            
+            // Set up socket connection first
+            socket = io({ transports: ['websocket'] });
+            
+            // Prompt for agent name and update UI
+            agentName = prompt("Enter your agent name:", "Agent") || "Agent";
+            document.querySelector('.chat-header h1').textContent = `Live Chat - Agent: ${agentName}`;
+            
+            // Replace placeholder with actual agent name in greeting options
+            document.querySelectorAll('.greeting-option').forEach(option => {
+                const message = option.getAttribute('data-message');
+                option.setAttribute('data-message', message.replace('{{agentName}}', agentName));
+            });
+            
+            // Show greeting modal
+            const greetingModal = document.getElementById('greetingModal');
+            const greetingOptions = document.querySelectorAll('.greeting-option');
+            const sendGreetingBtn = document.getElementById('sendGreeting');
+            const skipGreetingBtn = document.getElementById('skipGreeting');
+            let selectedGreeting = '';
+            
+            // Show modal when page loads
+            greetingModal.style.display = 'flex';
+            
+            // Handle greeting selection
+            greetingOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remove selected class from all options
+                    greetingOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Add selected class to clicked option
+                    option.classList.add('selected');
+                    selectedGreeting = option.getAttribute('data-message');
+                    sendGreetingBtn.disabled = false;
+                });
+            });
+            
+            // Handle send greeting
+            sendGreetingBtn.addEventListener('click', () => {
+                if (selectedGreeting) {
+                    // Replace any remaining placeholders before sending
+                    let finalGreeting = selectedGreeting.replace('{{agentName}}', '').trim();
+                    // Remove any duplicate agent names that might be in the greeting
+                    finalGreeting = finalGreeting.replace(agentName, '').trim();
+                    // Send the greeting message
+                    messageInput.value = finalGreeting;
+                    sendMessage();
+                    greetingModal.style.display = 'none';
+                }
+            });
+            
+            // Handle skip greeting
+            skipGreetingBtn.addEventListener('click', () => {
+                greetingModal.style.display = 'none';
+            });
+
+            function sendMessage() {
+                let message = messageInput.value.trim();
+
+                if (message !== '' && socket && socket.connected) {
+                    // Remove any leading agent name from the message to prevent duplication
+                    if (message.startsWith(agentName)) {
+                        message = message.substring(agentName.length).trim();
+                    }
+                    
+                    const payload = { 
+                        room: sessionId, 
+                        msg: message,
+                        sender: agentName,
+                        user_type: 'staff'  // Use 'staff' to match chat service expectations
+                    };
+                    console.log("AGENT IS SENDING:", payload);
+                    socket.emit('message', payload);
+                    addMessageToBox('You', message, 'agent-message');
+                    messageInput.value = '';
+                }
+            }
+
+            socket.on('connect', () => {
+                console.log('Agent connected');
+                addSystemMessage(`Connected. Joining room...`);
+                socket.emit('join', { 
+                    room: sessionId, 
+                    user_name: agentName, 
+                    user_type: 'staff'  // Use 'staff' to match chat service expectations
+                });
+            });
+
+            socket.on('message', data => {
+                console.log("AGENT RECEIVED:", data);
+                // Check if the message is from staff (current agent) or customer
+                const isFromStaff = data.user_type === 'staff' || data.sender === agentName;
+                const sender = isFromStaff ? 'You' : `Customer (${data.sender || 'Customer'})`;
+                const messageType = isFromStaff ? 'agent-message' : 'customer-message';
+                const messageContent = data.message || data.msg || '(empty)';
+                
+                // Don't display messages sent by current agent (they're already shown)
+                if (!isFromStaff) {
+                    addMessageToBox(sender, messageContent, messageType);
+                }
+            });
+            
+            socket.on('user_joined_notification', data => {
+                if(data.username !== agentName) addSystemMessage(data.message);
+            });
+
+            socket.on('user_left_notification', data => addSystemMessage(data.message));
+
+            socket.on('chat_ended', data => {
+                addSystemMessage(`Chat ended by ${data.username}. Interface disabled.`);
+                messageInput.disabled = true;
+                sendButton.disabled = true;
+                endChatButton.disabled = true;
+                if(socket) socket.disconnect();
+            });
+            
+            sendButton.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', e => { if (e.key === 'Enter') sendMessage(); });
+            endChatButton.addEventListener('click', () => {
+                if (confirm('Are you sure you want to end this chat?')) {
+                    socket.emit('end_chat', { 
+                        room: sessionId, 
+                        ender_name: agentName,
+                        user_type: 'staff'
+                    });
+                }
+            });
+
+            window.addEventListener('beforeunload', () => {
+                if (socket && socket.connected) {
+                    socket.emit('leave', { 
+                        room: sessionId, 
+                        user_name: agentName,
+                        user_type: 'staff'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

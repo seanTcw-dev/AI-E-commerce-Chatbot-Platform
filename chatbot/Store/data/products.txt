@@ -1,0 +1,16 @@
+ID|Name|Brand|Price|Category|Description|Stock|Image
+P001|Fragrance Discovery Set|19-69|35.00|Fragrance|Unisex genderless scent collection with warm & spicy, woody & earthy, and fresh scents|15|fragrance1.jpg
+P002|La Habana Eau de Parfum|19-69|195.00|Fragrance|Unisex genderless scent with warm & spicy notes - 3.4 oz|8|fragrance2.jpg
+P003|Rainbow Bar Eau de Parfum|19-69|195.00|Fragrance|Unisex genderless scent with woody & earthy notes - 3.4 oz|12|fragrance3.jpg
+P004|Kasbah Eau de Parfum|19-69|195.00|Fragrance|Unisex genderless scent with warm & spicy notes - 3.4 oz|10|fragrance4.jpg
+P005|Purple Haze Eau de Parfum|19-69|195.00|Fragrance|Unisex genderless scent with woody & earthy notes - 3.4 oz|6|fragrance5.jpg
+P006|Invisible Post Eau de Parfum|19-69|195.00|Fragrance|Fresh scent, allure 2022 Best of Beauty Award Winner - 3.4 oz|14|fragrance6.jpg
+P007|Capri Eau de Parfum|19-69|195.00|Fragrance|Fresh layerable scent with unisex appeal - 3.4 oz|9|fragrance7.jpg
+P008|Travel Spray Set|19-69|30.00|Fragrance|Mini travel size collection - 0.25 oz each|20|travel1.jpg
+P009|Moisturizing Face Cream|Beauty Co|45.00|Skincare|Daily hydrating cream for all skin types|25|skincare1.jpg
+P010|Vitamin C Serum|Glow Beauty|65.00|Skincare|Brightening serum with 20% Vitamin C|18|skincare2.jpg
+P011|Matte Lipstick Set|Color Me|25.00|Makeup|Long-lasting matte lipsticks in 6 shades|30|makeup1.jpg
+P012|Eyeshadow Palette|Glamour Pro|35.00|Makeup|12-color eyeshadow palette with shimmer and matte finishes|22|makeup2.jpg
+P013|Foundation Stick|Perfect Base|28.00|Makeup|Full coverage foundation stick - multiple shades|16|makeup3.jpg
+P014|Hair Growth Serum|Hair Plus|55.00|Hair Care|Scalp treatment for hair growth and thickness|12|haircare1.jpg
+P015|Dry Shampoo|Fresh Hair|18.00|Hair Care|Oil-absorbing dry shampoo for all hair types|35|haircare2.jpg

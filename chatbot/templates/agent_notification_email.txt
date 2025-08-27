@@ -1,0 +1,15 @@
+Hi there!
+
+A customer has requested a live chat session and needs your assistance.
+
+Session Details:
+- Session ID: {{ session_id }}
+- Time: {{ timestamp }}
+
+To join the chat, please click this link:
+{{ chat_link }}
+
+Thank you for your prompt response!
+
+Best regards,
+Sephora Customer Support System
