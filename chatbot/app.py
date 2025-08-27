@@ -17,9 +17,9 @@ from flask_cors import CORS
 from sentence_transformers import SentenceTransformer
 from flask_socketio import SocketIO
 from flask import send_from_directory
-from routes.main_routes import main_bp
-from routes.store_routes import store_bp
-from routes.studio_routes import studio_bp
+from .routes.main_routes import main_bp
+from .routes.store_routes import store_bp
+from .routes.studio_routes import studio_bp
 from services.extensions import socketio
 
 # Add the project root to the Python path

@@ -2,7 +2,7 @@ import os
 import uuid
 from flask import Blueprint, render_template, request, redirect, url_for, session, jsonify, current_app
 from flask_socketio import emit, join_room, leave_room
-from services.extensions import socketio
+from ..extensions import socketio
 
 
 # --- Blueprint Definition ---
