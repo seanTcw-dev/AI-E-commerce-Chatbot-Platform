@@ -65,6 +65,9 @@ Search Page
 Cart Page
 
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
+
+
+
 ## 📌 Project Goal and Use Case
 The Beauty Companion AI Chatbot is an intelligent, multi-modal customer support and product recommendation system for the beauty and skincare domain. It leverages Generative AI (LLMs) and Retrieval-Augmented Generation (RAG) to provide personalized product advice, answer customer queries, and connect users to live agents. The system is designed to enhance e-commerce experiences, support SDG Goal 3 (Good Health & Well-being) by promoting informed skincare choices, and streamline agent workflows via automation and real-time chat.
 
