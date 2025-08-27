@@ -10,3 +10,4 @@ python-telegram-bot
 asyncio
 Flask-SocketIO
 python-socketio
+gunicorn
