@@ -95,7 +95,8 @@ Cart Page
 
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 
-🚀 Quick Start
+
+## 🚀 Quick Start
 1) Clone repo
    
 git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
@@ -118,7 +119,8 @@ python chatbot/app.py
 
 (For Telegram bot and advanced setup, see PROJECT_DETAILS.md)
 
-🧠 AI Models (Dual-LLM)
+
+## 🧠 AI Models (Dual-LLM)
 
 •       🌐 Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
 
@@ -134,7 +136,8 @@ python chatbot/app.py
 
 TL;DR → Gemini for quality, Local LLM for privacy/cost. Router chooses the best.
 
-🏗 Architecture (Simplified)
+
+# 🏗 Architecture (Simplified)
 
 User
 
@@ -167,7 +170,8 @@ Model Router
 
 Model Router = logic that chooses Gemini or Local model based on .env, availability, or cost rules.
 
-🌍 Why This Project?
+
+## 🌍 Why This Project?
 
 •        💄 Enhance e-commerce with AI-driven product discovery
 
@@ -175,7 +179,8 @@ Model Router = logic that chooses Gemini or Local model based on .env, availabil
 
 •        ⚖️ Showcase Dual LLM architecture balancing quality, privacy & cost
 
-📌 Roadmap
+
+## 📌 Roadmap
 
 •        ✅ Chatbot with RAG
 
@@ -194,7 +199,8 @@ Model Router = logic that chooses Gemini or Local model based on .env, availabil
 •        🔜 Cloud deployment (Docker/Kubernetes)
 
 
-📖 More Details
+
+## 📖 More Details
 
 👉 See PROJECT_DETAILS.md
 •       Advanced model configuration
@@ -203,5 +209,6 @@ Model Router = logic that chooses Gemini or Local model based on .env, availabil
 
 •       Future extension guidelines
 
-📜 License
+
+## 📜 License
 MIT License — free to use, modify, and distribute.
