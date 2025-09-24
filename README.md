@@ -20,17 +20,18 @@ It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent ha
 📱 Multi-Channel – Works on Web (Flask) and Telegram
 
 🚀 Quick Start
-# Clone repo
+Clone repo
 git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
 cd AI-E-commerce-Chatbot-Platform
 
-# Setup environment
+Setup environment
 python -m venv venv
 source venv/bin/activate   # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 
-# Run backend (Flask app)
+Run backend (Flask app)
 python chatbot/app.py
+
 
 
 👉 Access at: http://127.0.0.1:5000
