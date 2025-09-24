@@ -6,7 +6,7 @@ An AI-powered e-commerce chatbot designed for the beauty & skincare domain.
 
 It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent handoff to deliver personalized product recommendations and customer support.
 
-✨ Highlights
+ **✨ Highlights **
 
 •        🤖 Smart Chatbot – Natural language Q&A and skincare product advice
 
