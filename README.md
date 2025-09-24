@@ -1,6 +1,9 @@
 🌸 Beauty Companion AI Chatbot Platform
+
 *Dual-LLM powered e-commerce assistant for beauty & skincare*
+
 An AI-powered e-commerce chatbot designed for the beauty & skincare domain.
+
 It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent handoff to deliver personalized product recommendations and customer support.
 
 ✨ Highlights
