@@ -19,48 +19,7 @@ It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent ha
 
 •        📱 Multi-Channel – Works on Web (Flask) and Telegram
 
-🚀 Quick Start
 
-1）Clone repo
-
-git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
-
-cd AI-E-commerce-Chatbot-Platform
-
-2）Setup environment
-
-python -m venv venv
-
-source venv/bin/activate   # or venv\Scripts\activate on Windows
-
-pip install -r requirements.txt
-
-3）Run backend (Flask app)
-
-python chatbot/app.py
-
-👉 Access at: http://127.0.0.1:5000
-
-(For Telegram bot and advanced setup, see PROJECT_DETAILS.md
-)
-
-🧠 AI Models (Dual-LLM)
-
-•        Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
-
-•        Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline/privacy/cost-sensitive mode.
-
-•        Model Selection: Controlled in .env (e.g., USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local). Backend contains dynamic selection + fallback logic (use local if online fails, or prefer Gemini for          certain query types).
-
-•        RAG Integration: Retrieved contexts from FAISS are passed into the chosen LLM so answers remain grounded in real product data.
-
-🏗 Architecture (Simplified)
-User → [Web UI / Telegram] → Flask Backend → RAG (FAISS + embeddings) → Model Router → [Google Gemini 1.5 API] OR [Local OpenHermes via Ollama]
-                                                               ↓
-                                                         Optional Live Agent
-
-
-Model Router = logic that chooses Gemini or Local model based on .env, availability, or cost rules.
 
 📸 Demo & UI
 
@@ -130,7 +89,48 @@ Cart Page
 
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 
+🚀 Quick Start
 
+1）Clone repo
+
+git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
+
+cd AI-E-commerce-Chatbot-Platform
+
+2）Setup environment
+
+python -m venv venv
+
+source venv/bin/activate   # or venv\Scripts\activate on Windows
+
+pip install -r requirements.txt
+
+3）Run backend (Flask app)
+
+python chatbot/app.py
+
+👉 Access at: http://127.0.0.1:5000
+
+(For Telegram bot and advanced setup, see PROJECT_DETAILS.md
+)
+
+🧠 AI Models (Dual-LLM)
+
+•        Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
+
+•        Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline/privacy/cost-sensitive mode.
+
+•        Model Selection: Controlled in .env (e.g., USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local). Backend contains dynamic selection + fallback logic (use local if online fails, or prefer Gemini for          certain query types).
+
+•        RAG Integration: Retrieved contexts from FAISS are passed into the chosen LLM so answers remain grounded in real product data.
+
+🏗 Architecture (Simplified)
+User → [Web UI / Telegram] → Flask Backend → RAG (FAISS + embeddings) → Model Router → [Google Gemini 1.5 API] OR [Local OpenHermes via Ollama]
+                                                               ↓
+                                                         Optional Live Agent
+
+
+Model Router = logic that chooses Gemini or Local model based on .env, availability, or cost rules.
 🌍 Why This Project?
 
 •        Enhance e-commerce experience with AI-driven product discovery
