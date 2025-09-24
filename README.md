@@ -1,5 +1,5 @@
 🌸 Beauty Companion AI Chatbot Platform
-
+*Dual-LLM powered e-commerce assistant for beauty & skincare*
 An AI-powered e-commerce chatbot designed for the beauty & skincare domain.
 It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent handoff to deliver personalized product recommendations and customer support.
 
@@ -90,54 +90,63 @@ Cart Page
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 
 🚀 Quick Start
-
-1）Clone repo
-
+# 1) Clone repo
 git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
-
 cd AI-E-commerce-Chatbot-Platform
 
-2）Setup environment
-
+# 2) Setup environment
 python -m venv venv
-
-source venv/bin/activate   # or venv\Scripts\activate on Windows
-
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-3）Run backend (Flask app)
-
+# 3) Run backend (Flask app)
 python chatbot/app.py
 
-👉 Access at: http://127.0.0.1:5000
+👉 Access the web app at: http://127.0.0.1:5000
 
-(For Telegram bot and advanced setup, see PROJECT_DETAILS.md
-)
+(For Telegram bot and advanced setup, see PROJECT_DETAILS.md)
 
 🧠 AI Models (Dual-LLM)
 
-•        Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
+•       🌐 Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
 
-•        Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline/privacy/cost-sensitive mode.
+•       🖥 Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline, privacy, and cost-sensitive mode.
 
-•        Model Selection: Controlled in .env (e.g., USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local). Backend contains dynamic selection + fallback logic (use local if online fails, or prefer Gemini for          certain query types).
+•       ⚖️ Model Selection: Controlled in .env
 
-•        RAG Integration: Retrieved contexts from FAISS are passed into the chosen LLM so answers remain grounded in real product data.
+         •Example: USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local
+
+         •Backend has dynamic selection + fallback (e.g., prefer Gemini for reasoning, fallback to local if offline).
+
+•       🔎 RAG Integration: Retrieved contexts from FAISS are injected into the chosen LLM so answers remain grounded in real product data.
+
+TL;DR → Gemini for quality, Local LLM for privacy/cost. Router chooses the best.
 
 🏗 Architecture (Simplified)
-User → [Web UI / Telegram] → Flask Backend → RAG (FAISS + embeddings) → Model Router → [Google Gemini 1.5 API] OR [Local OpenHermes via Ollama]
-                                                               ↓
-                                                         Optional Live Agent
+User
+  ↓
+[Web UI / Telegram]
+  ↓
+Flask Backend
+  ↓
+RAG (FAISS + Embeddings)
+  ↓
+Model Router
+  ├─> 🌐 Google Gemini 1.5 (cloud)
+  └─> 🖥 Local OpenHermes (Ollama)
+  ↓
+👩‍💼 Optional Live Agent (WebSocket + Email)
+
 
 
 Model Router = logic that chooses Gemini or Local model based on .env, availability, or cost rules.
 🌍 Why This Project?
 
-•        Enhance e-commerce experience with AI-driven product discovery
+•        💄 Enhance e-commerce with AI-driven product discovery
 
-•        Support SDG Goal 3 (Health & Well-being) by promoting informed skincare choices
+•        🌱 Support SDG Goal 3 (Health & Well-being)
 
-•        Showcase a dual LLM architecture to balance quality, privacy, and cost
+•        ⚖️ Showcase Dual LLM architecture balancing quality, privacy & cost
 
 📌 Roadmap
 
@@ -157,8 +166,15 @@ Model Router = logic that chooses Gemini or Local model based on .env, availabil
 
 •        🔜 Cloud deployment (Docker/Kubernetes)
 
+
 📖 More Details
 
 👉 See PROJECT_DETAILS.md
- for full technical breakdown, advanced model config, and production hardening tips.
+•       Advanced model configuration
 
+•       Production hardening tips
+
+•       Future extension guidelines
+
+📜 License
+MIT License — free to use, modify, and distribute.
