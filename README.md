@@ -93,16 +93,16 @@ Cart Page
 <img width="505" height="881" alt="image" src="https://github.com/user-attachments/assets/958005b3-7894-4e71-888f-2dd2335bc012" />
 
 🚀 Quick Start
-# 1) Clone repo
+1) Clone repo
 git clone https://github.com/seanTcw-dev/AI-E-commerce-Chatbot-Platform.git
 cd AI-E-commerce-Chatbot-Platform
 
-# 2) Setup environment
+2) Setup environment
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# 3) Run backend (Flask app)
+3) Run backend (Flask app)
 python chatbot/app.py
 
 👉 Access the web app at: http://127.0.0.1:5000
