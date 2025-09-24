@@ -132,23 +132,38 @@ python chatbot/app.py
 TL;DR → Gemini for quality, Local LLM for privacy/cost. Router chooses the best.
 
 🏗 Architecture (Simplified)
+
 User
+
   ↓
+  
 [Web UI / Telegram]
+
   ↓
+  
 Flask Backend
+
   ↓
+  
 RAG (FAISS + Embeddings)
+
   ↓
+  
 Model Router
+
   ├─> 🌐 Google Gemini 1.5 (cloud)
+  
   └─> 🖥 Local OpenHermes (Ollama)
+  
   ↓
+  
 👩‍💼 Optional Live Agent (WebSocket + Email)
 
 
 
+
 Model Router = logic that chooses Gemini or Local model based on .env, availability, or cost rules.
+
 🌍 Why This Project?
 
 •        💄 Enhance e-commerce with AI-driven product discovery
