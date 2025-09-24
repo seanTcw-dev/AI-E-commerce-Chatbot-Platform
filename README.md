@@ -5,19 +5,19 @@ It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent ha
 
 ✨ Highlights
 
-🤖 Smart Chatbot – Natural language Q&A and skincare product advice
+•        🤖 Smart Chatbot – Natural language Q&A and skincare product advice
 
-🧩 Dual LLM System – Online (Google Gemini 1.5) + Local (OpenHermes-2.5 / Mistral via Ollama) for flexibility, privacy, and cost control
+•        🧩 Dual LLM System – Online (Google Gemini 1.5) + Local (OpenHermes-2.5 / Mistral via Ollama) for flexibility, privacy, and cost control
 
-🔎 RAG Search – AI answers grounded in real product data (FAISS + sentence-transformers)
+•        🔎 RAG Search – AI answers grounded in real product data (FAISS + sentence-transformers)
 
-👩‍💼 Live Agent Handoff – Seamless switch from AI to human agent via WebSocket
+•        👩‍💼 Live Agent Handoff – Seamless switch from AI to human agent via WebSocket
 
-🛍️ E-commerce Flow – Browse, filter, add-to-cart, and checkout (demo)
+•        🛍️ E-commerce Flow – Browse, filter, add-to-cart, and checkout (demo)
 
-🎨 Beauty Companion Studio – Create & chat with a customizable AI skincare assistant
+•        🎨 Beauty Companion Studio – Create & chat with a customizable AI skincare assistant
 
-📱 Multi-Channel – Works on Web (Flask) and Telegram
+•        📱 Multi-Channel – Works on Web (Flask) and Telegram
 
 🚀 Quick Start
 
@@ -46,13 +46,13 @@ python chatbot/app.py
 
 🧠 AI Models (Dual-LLM)
 
-Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
+•        Online LLM: Google Gemini 1.5 — high-quality, up-to-date generative responses (requires GOOGLE_API_KEY).
 
-Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline/privacy/cost-sensitive mode.
+•        Local LLM: teknium/OpenHermes-2.5-Mistral-7B served via Ollama (LOCAL_AI_URL) — for offline/privacy/cost-sensitive mode.
 
-Model Selection: Controlled in .env (e.g., USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local). Backend contains dynamic selection + fallback logic (use local if online fails, or prefer Gemini for certain query types).
+•        Model Selection: Controlled in .env (e.g., USE_LOCAL_AI=true/false or PREFERRED_MODEL=gemini|local). Backend contains dynamic selection + fallback logic (use local if online fails, or prefer Gemini for          certain query types).
 
-RAG Integration: Retrieved contexts from FAISS are passed into the chosen LLM so answers remain grounded in real product data.
+•        RAG Integration: Retrieved contexts from FAISS are passed into the chosen LLM so answers remain grounded in real product data.
 
 🏗 Architecture (Simplified)
 User → [Web UI / Telegram] → Flask Backend → RAG (FAISS + embeddings) → Model Router → [Google Gemini 1.5 API] OR [Local OpenHermes via Ollama]
@@ -133,33 +133,32 @@ Cart Page
 
 🌍 Why This Project?
 
-Enhance e-commerce experience with AI-driven product discovery
+•        Enhance e-commerce experience with AI-driven product discovery
 
-Support SDG Goal 3 (Health & Well-being) by promoting informed skincare choices
+•        Support SDG Goal 3 (Health & Well-being) by promoting informed skincare choices
 
-Showcase a dual LLM architecture to balance quality, privacy, and cost
+•        Showcase a dual LLM architecture to balance quality, privacy, and cost
 
 📌 Roadmap
 
-✅ Chatbot with RAG
+•        ✅ Chatbot with RAG
 
-✅ Dual LLM integration + model switching/fallback
+•        ✅ Dual LLM integration + model switching/fallback
 
-✅ Product recommendation engine
+•        ✅ Product recommendation engine
 
-✅ Live agent WebSocket + email alerts
+•        ✅ Live agent WebSocket + email alerts
 
-✅ Telegram bot integration
+•        ✅ Telegram bot integration
 
-🔜 Persistent user profiles & history
+•        🔜 Persistent user profiles & history
 
-🔜 Analytics dashboard for agents
+•        🔜 Analytics dashboard for agents
 
-🔜 Cloud deployment (Docker/Kubernetes)
+•        🔜 Cloud deployment (Docker/Kubernetes)
 
 📖 More Details
 
 👉 See PROJECT_DETAILS.md
  for full technical breakdown, advanced model config, and production hardening tips.
-- All sensitive keys/configs are loaded from `.env` and not committed to version control.
-- For academic reports, reference the RAG pipeline, modular Flask architecture, and multi-channel (web + Telegram) integration as key innovations.
+
