@@ -28,7 +28,7 @@ It combines Generative AI (LLMs) + RAG (FAISS + embeddings) + real-time agent ha
 
 
 ## 📸 Demo & UI
-
+Youtube Link: https://youtu.be/ss3i78sPxDA
 ## Home Page
 
 <img width="905" height="393" alt="image" src="https://github.com/user-attachments/assets/7c1c0887-6882-4ac7-8d62-cd647ab51a5b" />
